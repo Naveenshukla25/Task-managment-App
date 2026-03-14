@@ -19,7 +19,7 @@ function Home() {
       if(!token) return;
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:3000/api/todo/fetch", {
+        const response = await axios.get("https://task-managment-server-p2am.onrender.com/api/todo/fetch", {
           headers: {
             token: token
           }
@@ -49,7 +49,7 @@ function Home() {
     if (!newTodo.trim()) return;
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/todo/create",
+        "https://task-managment-server-p2am.onrender.com/api/todo/create",
         {
           text: newTodo,
           completed: false,
@@ -77,7 +77,7 @@ function Home() {
     
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/todo/update/${id}`,
+        `https://task-managment-server-p2am.onrender.com/api/todo/update/${id}`,
         {
           ...todo,
           completed: !todo.completed,
@@ -103,7 +103,7 @@ function Home() {
     setTodos(todos.filter((t) => t._id !== id));
     
     try {
-      await axios.delete(`http://localhost:3000/api/todo/delete/${id}`, {
+      await axios.delete(`https://task-managment-server-p2am.onrender.com/api/todo/delete/${id}`, {
         headers: {
           token: token
         }
